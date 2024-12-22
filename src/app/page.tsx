@@ -1,4 +1,4 @@
-import { MovieCard } from "@/components/MovieCard/MovieCard";
+import { MoviesList } from "@/components/MoviesList/MoviesList";
 import { SearchForm } from "@/components/SearchForm/SearchForm";
 import { getAllMovies } from "@/lib/movies";
 import type { FC } from "react";
@@ -27,12 +27,7 @@ const Home: FC<HomeProps> = async ({ searchParams }) => {
             <SearchForm />
           </div>
 
-          {/* Movies */}
-          <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-            {moviesList.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
-            ))}
-          </div>
+          <MoviesList moviesList={moviesList} />
         </div>
       </div>
     </div>

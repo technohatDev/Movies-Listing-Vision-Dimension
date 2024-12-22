@@ -3,6 +3,15 @@ import { BASE_URL } from "@/utils/constants.util";
 
 import type { FetchOptions, FetchProps } from "./types";
 
+const ErrorResponses: Record<number, string> = {
+  400: "Bad Request",
+  401: "Unauthorized",
+  403: "Forbidden",
+  404: "Not Found",
+  405: "Method Not Allowed",
+  500: "Internal Server Error",
+};
+
 const request = async ({ url, data, options, method = "GET" }: FetchProps) => {
   const fetchOptions = {
     method,
@@ -22,6 +31,23 @@ const request = async ({ url, data, options, method = "GET" }: FetchProps) => {
 
   try {
     const response = await fetch(`${BASE_URL}${url}`, fetchOptions);
+    const isResponseSuccess = response.status >= 200 && response.status < 300;
+
+    if (!response.ok) {
+      throw new Error(
+        `Request failed with status ${response.status} | ${
+          ErrorResponses[response.status]
+        }`
+      );
+    }
+
+    if (!isResponseSuccess) {
+      return generateErrorResponse([
+        `Request failed with status ${response.status}`,
+        ErrorResponses[response.status] || "",
+      ]);
+    }
+
     const responseData = await response.json();
 
     return responseData;
