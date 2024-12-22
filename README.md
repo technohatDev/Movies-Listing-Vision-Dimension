@@ -4,6 +4,14 @@ This project is a technical assignment for Vision Dimension Company. The project
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and uses `yarn` as the package manager.
 
+## Live Demo
+
+The project is deployed on Vercel and can be accessed [here](https://movies-list-vision-dimension-test.vercel.app/).
+
+## API Used
+
+The project uses the [freetestapi.com/apis/movies](https://www.freetestapi.com/apis/movies) free api to fetch the list of movies.
+
 ## Technologies Used
 
 - Next.js
