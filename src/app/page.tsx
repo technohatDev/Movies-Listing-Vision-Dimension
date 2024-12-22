@@ -28,7 +28,7 @@ const Home: FC<HomeProps> = async ({ searchParams }) => {
           </div>
 
           {/* Movies */}
-          <div className="grid grid-cols-5 gap-5">
+          <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
             {moviesList.map((movie) => (
               <MovieCard movie={movie} key={movie.id} />
             ))}

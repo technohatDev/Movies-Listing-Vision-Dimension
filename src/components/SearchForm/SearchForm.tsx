@@ -14,7 +14,7 @@ export const SearchForm = () => {
 
   return (
     <form
-      className="flex gap-3 items-center mt-8"
+      className="flex gap-3 items-center mt-8 sm:flex-row flex-col"
       onSubmit={(e) => {
         e.preventDefault();
 
@@ -32,7 +32,7 @@ export const SearchForm = () => {
 
       <Button
         variant="outline"
-        className="px-6 py-4 h-auto box-content rounded-[30px]"
+        className="px-6 py-4 h-auto sm:box-content rounded-[30px] w-full sm:w-auto"
       >
         Search <Search />
       </Button>
